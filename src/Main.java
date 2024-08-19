@@ -77,9 +77,8 @@ public class Main {
         String password = scanner.nextLine();
         User user = authService.logIn(username, password);
         System.out.println("Welcome, " + user.getUsername() + "!");
-        // TODO Now: Create an instance of the ToDoList class with the logged-in user and call the run method
+        // TODO Later: Add the to-do list operations
     }
-}
 
     /**
      * Handles the sign-up process.
@@ -91,7 +90,15 @@ public class Main {
         System.out.print("Enter your password: ");
         String password = scanner.nextLine();
         User user = authService.signUp(username, password);
-        // TODO Later: Shows a message based on the result
+        if (user == null) {
+            System.out.println("The username is already taken!");
+        }
+        else {
+            System.out.printf("User $s has been created succesfully!%n", user.getUsername());
+        }
+        // TODO Now: Show a message based on the result of the signUp method:
+        // - If the user is not null, show "User <username> has been created successfully!"
+        // - If the user is null, show "The username is already taken!"
     }
 
     /**
